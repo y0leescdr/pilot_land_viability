@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>The Land Viability Engine: A 4-Week Pilot</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    /* =========================
+       Base (Screen)
+       ========================= */
+    :root{
+      --text: #111827; --muted: #374151; --muted2: #4b5563;
+      --rule: #e5e7eb; --rule-print: #cccccc;
+      --accent: #2563eb; --accent-light: #eff6ff; --page-bg: #f9fafb;
+      --font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    }
+    html,body{
+      margin:0; padding:0; color:var(--text); background:var(--page-bg);
+      font-family: var(--font-family);
+    }
+    .container{
+      max-width:800px; margin:32px auto; background:#fff; padding:36px;
+      box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+      border: 1px solid var(--rule); border-radius: 8px;
+    }
+    .header{
+      text-align:center; margin-bottom:24px; padding-bottom:16px; border-bottom:1px solid var(--rule);
+    }
+    .header h1{font-size:18px; font-weight:700; margin:0 0 6px;}
+    .header p{font-size:14px; color:#6b7280; margin:0;}
+    .header .subtitle { font-size: 15px; color: var(--muted2); margin-top: 8px; font-style: italic; line-height: 1.4; }
+    .product-title{text-align:center; margin:24px 0 16px;}
+    .product-title h2{
+      font-size:36px; font-weight:800; margin:0; line-height:1.2; color: var(--accent);
+    }
+    .hero{
+      width:100%; margin:20px 0 28px;
+    }
+    .hero img{
+      width:100%; height:180px; display:block; object-fit:cover; object-position:center;
+      border-radius:12px; border:1px solid var(--rule); background:#f8fafc;
+    }
+    .hero figcaption {
+      font-size: 13px; color: var(--muted2); text-align: center; margin-top: 8px;
+    }
+    h3{
+      font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.1em;
+      margin:28px 0 12px; padding-bottom:8px; border-bottom:1px solid var(--rule); color:var(--text);
+    }
+    p{margin:0 0 10px; font-size:15px; line-height:1.55;}
+    ul.icon-list{list-style:none; padding-left:0; margin:16px 0 0;}
+    .icon-list li{display:flex; align-items:flex-start; gap:12px; margin-bottom:10px;}
+    .icon{
+      width:22px; height:22px; flex-shrink:0; margin-top:2px;
+      color: var(--accent);
+    }
+    .icon-list p{margin:0; flex:1;}
+    .proof-point-box{
+      display:flex; flex-direction: column; gap:0;
+      border:1px solid #dbeafe; border-left:4px solid var(--accent); border-radius:8px;
+      padding:16px; margin:20px 0; background-color: var(--accent-light);
+    }
+    .proof-point-box .content { display:flex; align-items:flex-start; gap:16px; }
+    .proof-point-box img{width:24px; height:24px; flex-shrink:0; margin-top:2px;}
+    .proof-point-link {
+      margin-top: 10px; font-size: 13px; font-weight: 600; text-decoration: none; color: var(--accent);
+    }
+    .proof-point-link:hover { text-decoration: underline; }
+    .investment-box{
+      background-color: #f9fafb;
+      border:1px solid var(--rule); border-radius:8px; padding:20px; text-align:center; margin-top:20px;
+    }
+    .investment-box h3{border:none; margin:0 0 4px; padding:0; font-size:11px; color:#6b7280;}
+    .price{font-size:38px; font-weight:800; margin:4px 0 8px; line-height:1; color: var(--accent);}
+    .context{font-size:14px; color:var(--muted2); max-width:420px; margin:0 auto;}
+    .cta-section{text-align:center; margin-top:24px;}
+    .cta-section p{margin:0 0 12px; font-size:15px; font-weight:600;}
+    .cta-button{
+      display:inline-block; background-color: var(--accent); color:#fff;
+      border:1px solid var(--accent); border-radius:8px;
+      padding:12px 24px; font-size:15px; font-weight:600; text-decoration:none;
+      transition: background-color 0.2s ease, transform 0.2s ease;
+    }
+    .cta-button:hover{ background-color: #1d4ed8; transform: translateY(-1px); }
+
+    /* =========================
+       Print tuning
+       ========================= */
+    @media print {
+      *{-webkit-print-color-adjust:exact !important;print-color-adjust:exact !important; box-sizing:border-box}
+
+      @page { size: A4; margin: 9mm; }
+
+      html, body{
+        width: 210mm; height: 297mm; margin:0; padding:0;
+        overflow:hidden; background:#fff; font-family: var(--font-family);
+      }
+      .container{
+        width: 100%; max-width: unset; margin:0; padding:6mm;
+        border:none; box-shadow:none;
+      }
+      h1,h2,h3,p,li,div{color:#000 !important}
+      .header, h3{border-color: var(--rule-print)}
+      .header{padding-bottom:2.5mm; margin-bottom:2.5mm}
+      .header h1{font-size:12pt}
+      .header p{font-size:9.5pt}
+      .header .subtitle { font-size: 9.5pt; font-style: italic; margin-top: 2mm; }
+      .product-title{margin:2.5mm 0 2mm}
+      .product-title h2{font-size:20pt; color:var(--accent) !important}
+      .hero{ margin: 2.5mm 0 2.5mm; }
+      .hero img{height:34mm; border-radius:6px; }
+      .hero figcaption { font-size: 8.5pt; margin-top: 2mm; }
+      h3{font-size:9pt; padding-bottom:1.5mm; margin:2.5mm 0 1.5mm}
+      p{font-size:9.5pt; line-height:1.4; margin:0 0 1.8mm}
+      .icon{font-size:14pt; color: var(--accent) !important}
+      ul.icon-list { margin-top: 2mm; }
+      .icon-list li{margin-bottom:1.8mm; gap: 3mm;}
+      .proof-point-box{margin:2.5mm 0; padding:3mm 4mm; background-color: var(--accent-light) !important; border-color: #dbeafe !important; border-left-color: var(--accent) !important;}
+      .proof-point-box p{font-size:9pt; line-height:1.45;}
+      .proof-point-link { font-size: 9pt; margin-top: 2mm; }
+      .investment-box{margin-top:2.5mm; padding:3.5mm; background-color: #f9fafb !important}
+      .investment-box h3{font-size:8.5pt}
+      .price{font-size:22pt; color: var(--accent) !important}
+      .context{font-size:9.5pt; max-width: 90%;}
+      .cta-section{margin-top:2.5mm}
+      .cta-section p{font-size:10.5pt; margin-bottom: 2mm}
+      .cta-button{font-size:10pt; padding:2.5mm 6mm; color:#fff !important; background-color: var(--accent) !important; border-color: var(--accent) !important;}
+
+      .proof-point-box, .investment-box, .cta-section, .icon-list, .header, .product-title {
+        page-break-inside: avoid; break-inside: avoid;
+      }
+
+      /* Downscale to ensure fit on one page */
+      body.fit{
+        transform: scale(0.95);
+        transform-origin: top left;
+        width: calc(210mm / 0.95);
+        height: calc(297mm / 0.95);
+      }
+    }
+  </style>
+</head>
+<body class="fit">
+  <div class="container">
+    <header class="header">
+      <h1>Yolee Escuadra | AI + Geospatial Consultant</h1>
+      <p>yoleeescuadra@gmail.com</p>
+      <p class="subtitle">Helping planners and developers make data-driven location decisions.</p>
+    </header>
+
+    <section class="product-title">
+      <h2>The Land Viability Engine: A 4-Week Pilot</h2>
+    </section>
+
+    <figure class="hero">
+      <img src="land_viability.png" alt="AI-generated map showing PASS (green) and FAIL (red) zones for land screening.">
+      <figcaption>Instantly screen land against <strong>your</strong> unique criteria.</figcaption>
+    </figure>
+
+    <h3>The High Cost of Manual Validation</h3>
+    <p>Manual validation sinks weeks into dead-end leads. Eyeballing distances on Google Earth, cross-referencing static flood maps, and guessing at slope leads to costly errors. You waste time and resources on site visits for land that was non-viable from the start.</p>
+
+    <h3>My Unfair Advantage: A Custom-Built Screening Engine</h3>
+    <p>My AI-powered engine provides an instant, data-driven verdict. I synthesize <strong>your company's unique screening criteria</strong> (like grid proximity for solar, highway access for logistics, or flood risk for real estate) to give you a PASS/FAIL answer in seconds.</p>
+
+    <div class="proof-point-box">
+      <div class="content">
+        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 48 48'%3E%3Cpath fill='%233B82F6' d='M24 4a20 20 0 1 0 0 40a20 20 0 0 0 0-40Z'/%3E%3Cpath fill='white' d='M24 12a12 12 0 1 0 0 24a12 12 0 0 0 0-24Zm0 3a9 9 0 1 1 0 18a9 9 0 0 1 0-18Z'/%3E%3C/svg%3E" alt="Maps icon">
+        <p><strong>Featured on the official Google Maps Platform Blog</strong> for my pioneering work in AI-driven real estate valuation and market analysis.</p>
+      </div>
+      <a class="proof-point-link" href="https://mapsplatform.google.com/resources/blog/from-location-to-valuation-analyzing-real-estate-with-places-insights-in-bigquery/" target="_blank" rel="noopener noreferrer">Read the feature →</a>
+    </div>
+
+    <h3>What You’ll Get in the 4-Week Pilot</h3>
+    <ul class="icon-list">
+       <li>
+        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg></div>
+        <p><strong>Criteria Scoping Workshop</strong> to define and lock in your project's unique data layers and business rules for success.</p>
+      </li>
+      <li>
+        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75" /></svg></div>
+        <p><strong>A Live Screening Engine</strong> configured with <strong>your custom criteria</strong> (e.g., slope, grid proximity, flood risk) in <strong>one target activation region</strong>.</p>
+      </li>
+      <li>
+        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg></div>
+        <p><strong>Instant Viability Verdicts (PASS/FAIL)</strong> when you input any coordinate in the activated region.</p>
+      </li>
+       <li>
+        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6" /></svg></div>
+        <p><strong>Expanded Zone View</strong> to visually confirm promising (PASS) zones with context on <strong>your</strong> key data layers.</p>
+      </li>
+      <li>
+        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 4.5v15a2.25 2.25 0 002.25 2.25h12A2.25 2.25 0 0020.25 19.5V4.5M3.75 4.5L12 9l8.25-4.5M3.75 4.5h16.5v-2.25A2.25 2.25 0 0017.25 0H6.75A2.25 2.25 0 004.5 2.25v2.25z" /></svg></div>
+        <p><strong>20 Screening Credits</strong> to test 20 real land leads during the pilot, proving the value immediately.</p>
+      </li>
+    </ul>
+
+    <h3>A 4-Week Roadmap to Your Custom Engine</h3>
+    <ul class="icon-list">
+      <li>
+        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3v1.5M3 21v-6m0 0l2.77-.693a9 9 0 016.208.682l.108.054a9 9 0 006.086.71l3.114-.732a48.524 48.524 0 01-.005-10.499l-3.11.732a9 9 0 01-6.085-.711l-.108-.054a9 9 0 00-6.208-.682L3 4.5M3 15V4.5" /></svg></div>
+        <p><strong>Week 1:</strong> Kickoff & Scoping Session (Define your 1 activation region & <strong>your key criteria thresholds</strong>)</p>
+      </li>
+      <li>
+        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .587-.213 1.158-.591 1.591L13.5 14.5m0 0v5.25m2.25-5.25H5" /></svg></div>
+        <p><strong>Weeks 2–3:</strong> Data Sourcing, Ingestion & AI Modeling (We build your custom data layers)</p>
+      </li>
+      <li>
+        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg></div>
+        <p><strong>Week 4:</strong> Engine Delivery & Handover Workshop (Train your team on your new custom tool)</p>
+      </li>
+    </ul>
+
+    <div class="investment-box">
+      <h3>A Smart Investment in Certainty</h3>
+      <p class="price">PHP 150,000</p>
+      <p class="context">This pilot is a small investment to prevent a multi-million peso mistake. It's an investment to stop wasting time and resources on non-viable land.</p>
+    </div>
+
+    <div class="cta-section">
+      <p>Ready to stop wasting time on bad leads?</p>
+      <a class="cta-button" href="mailto:yoleeescuadra@gmail.com?subject=Inquiry%3A%20Land%20Viability%20Engine%20Pilot">Send an Email Inquiry</a>
+    </div>
+  </div>
+</body>
+</html>
