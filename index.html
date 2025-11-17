@@ -69,11 +69,11 @@
       margin-top: 10px; font-size: 13px; font-weight: 600; text-decoration: none; color: var(--accent);
     }
     .proof-point-link:hover { text-decoration: underline; }
-    .investment-box{
+    .investment-box {
       background-color: #f9fafb;
       border:1px solid var(--rule); border-radius:8px; padding:20px; text-align:center; margin-top:20px;
     }
-    .investment-box h3{border:none; margin:0 0 4px; padding:0; font-size:11px; color:#6b7280;}
+    .investment-box h3 {border:none; margin:0 0 4px; padding:0; font-size:11px; color:#6b7280;}
     .price{font-size:38px; font-weight:800; margin:4px 0 8px; line-height:1; color: var(--accent);}
     .context{font-size:14px; color:var(--muted2); max-width:420px; margin:0 auto;}
     .cta-section{text-align:center; margin-top:24px;}
@@ -91,9 +91,7 @@
        ========================= */
     @media print {
       *{-webkit-print-color-adjust:exact !important;print-color-adjust:exact !important; box-sizing:border-box}
-
       @page { size: A4; margin: 9mm; }
-
       html, body{
         width: 210mm; height: 297mm; margin:0; padding:0;
         overflow:hidden; background:#fff; font-family: var(--font-family);
@@ -102,43 +100,40 @@
         width: 100%; max-width: unset; margin:0; padding:6mm;
         border:none; box-shadow:none;
       }
-      h1,h2,h3,p,li,div{color:#000 !important}
+      h1,h2,h3,p,li,div,strong{color:#000 !important}
       .header, h3{border-color: var(--rule-print)}
-      .header{padding-bottom:2.5mm; margin-bottom:2.5mm}
-      .header h1{font-size:12pt}
-      .header p{font-size:9.5pt}
-      .header .subtitle { font-size: 9.5pt; font-style: italic; margin-top: 2mm; }
-      .product-title{margin:2.5mm 0 2mm}
-      .product-title h2{font-size:20pt; color:var(--accent) !important}
-      .hero{ margin: 2.5mm 0 2.5mm; }
-      .hero img{height:34mm; border-radius:6px; }
-      .hero figcaption { font-size: 8.5pt; margin-top: 2mm; }
+      .header{padding-bottom:2mm; margin-bottom:2mm}
+      .header h1{font-size:11.5pt}
+      .header p{font-size:9pt}
+      .header .subtitle { font-size: 9pt; font-style: italic; margin-top: 1.5mm; }
+      .product-title{margin:2mm 0 2mm}
+      .product-title h2{font-size:19pt; color:var(--accent) !important}
+      .hero{ margin: 2mm 0 2.5mm; }
+      .hero img{height:32mm; border-radius:6px; }
+      .hero figcaption { font-size: 8pt; margin-top: 1.5mm; }
       h3{font-size:9pt; padding-bottom:1.5mm; margin:2.5mm 0 1.5mm}
-      p{font-size:9.5pt; line-height:1.4; margin:0 0 1.8mm}
+      p{font-size:9pt; line-height:1.4; margin:0 0 1.8mm}
       .icon{font-size:14pt; color: var(--accent) !important}
       ul.icon-list { margin-top: 2mm; }
       .icon-list li{margin-bottom:1.8mm; gap: 3mm;}
       .proof-point-box{margin:2.5mm 0; padding:3mm 4mm; background-color: var(--accent-light) !important; border-color: #dbeafe !important; border-left-color: var(--accent) !important;}
       .proof-point-box p{font-size:9pt; line-height:1.45;}
-      .proof-point-link { font-size: 9pt; margin-top: 2mm; }
-      .investment-box{margin-top:2.5mm; padding:3.5mm; background-color: #f9fafb !important}
-      .investment-box h3{font-size:8.5pt}
-      .price{font-size:22pt; color: var(--accent) !important}
-      .context{font-size:9.5pt; max-width: 90%;}
+      .proof-point-link { font-size: 8.5pt; margin-top: 2mm; }
+      .investment-box {margin-top:2.5mm; padding:3.5mm; background-color: #f9fafb !important}
+      .investment-box h3 {font-size:8.5pt}
+      .price{font-size:21pt; color: var(--accent) !important}
+      .context{font-size:9pt; max-width: 95%; margin-bottom: 0;}
       .cta-section{margin-top:2.5mm}
-      .cta-section p{font-size:10.5pt; margin-bottom: 2mm}
-      .cta-button{font-size:10pt; padding:2.5mm 6mm; color:#fff !important; background-color: var(--accent) !important; border-color: var(--accent) !important;}
-
+      .cta-section p{font-size:10pt; margin-bottom: 2mm}
+      .cta-button{font-size:9.5pt; padding:2.5mm 6mm; color:#fff !important; background-color: var(--accent) !important; border-color: var(--accent) !important;}
       .proof-point-box, .investment-box, .cta-section, .icon-list, .header, .product-title {
         page-break-inside: avoid; break-inside: avoid;
       }
-
-      /* Downscale to ensure fit on one page */
       body.fit{
-        transform: scale(0.95);
+        transform: scale(0.97);
         transform-origin: top left;
-        width: calc(210mm / 0.95);
-        height: calc(297mm / 0.95);
+        width: calc(210mm / 0.97);
+        height: calc(297mm / 0.97);
       }
     }
   </style>
@@ -157,14 +152,14 @@
 
     <figure class="hero">
       <img src="land_viability.png" alt="AI-generated map showing PASS (green) and FAIL (red) zones for land screening.">
-      <figcaption>Instantly screen land against <strong>your</strong> unique criteria.</figcaption>
+      <figcaption>Instantly validate land against key viability metrics.</figcaption>
     </figure>
 
     <h3>The High Cost of Manual Validation</h3>
-    <p>Manual validation sinks weeks into dead-end leads. Eyeballing distances on Google Earth, cross-referencing static flood maps, and guessing at slope leads to costly errors. You waste time and resources on site visits for land that was non-viable from the start.</p>
+    <p>Manual validation sinks weeks into dead-end leads. Eyeballing distances on Google Earth, juggling multiple data sources, and guessing at slope leads to costly errors. You waste time and resources on site visits for land that was non-viable from the start.</p>
 
-    <h3>My Unfair Advantage: A Custom-Built Screening Engine</h3>
-    <p>My AI-powered engine provides an instant, data-driven verdict. I synthesize <strong>your company's unique screening criteria</strong> (like grid proximity for solar, highway access for logistics, or flood risk for real estate) to give you a PASS/FAIL answer in seconds.</p>
+    <h3>My Unfair Advantage: A Standardized Screening Engine</h3>
+    <p>My AI-powered engine provides an instant, data-driven verdict. It screens each site against key viability metrics—tied to <strong>your target infrastructure needs</strong> (e.g., proximity to substations, expressways, or industrial zones)—to give you a PASS/FAIL answer in seconds.</p>
 
     <div class="proof-point-box">
       <div class="content">
@@ -177,47 +172,43 @@
     <h3>What You’ll Get in the 4-Week Pilot</h3>
     <ul class="icon-list">
        <li>
-        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg></div>
-        <p><strong>Criteria Scoping Workshop</strong> to define and lock in your project's unique data layers and business rules for success.</p>
+        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3v1.5M3 21v-6m0 0l2.77-.693a9 9 0 016.208.682l.108.054a9 9 0 006.086.71l3.114-.732a48.524 48.524 0 01-.005-10.499l-3.11.732a9 9 0 01-6.085-.711l-.108-.054a9 9 0 00-6.208-.682L3 4.5M3 15V4.5" /></svg></div>
+        <p><strong>One Target Activation Region</strong> deployed for your team. An Activation Region is a functional market area (e.g., a target city, municipality, or key economic zone).</p>
       </li>
       <li>
         <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75" /></svg></div>
-        <p><strong>A Live Screening Engine</strong> configured with <strong>your custom criteria</strong> (e.g., slope, grid proximity, flood risk) in <strong>one target activation region</strong>.</p>
+        <p><strong>Live Screening Engine</strong> configured with 4 standard criteria: <strong>Infrastructure Proximity, Land Use, Slope, and Road Access.</strong></p>
       </li>
       <li>
         <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg></div>
-        <p><strong>Instant Viability Verdicts (PASS/FAIL)</strong> when you input any coordinate in the activated region.</p>
-      </li>
-       <li>
-        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6" /></svg></div>
-        <p><strong>Expanded Zone View</strong> to visually confirm promising (PASS) zones with context on <strong>your</strong> key data layers.</p>
+        <p><strong>Instant Viability Verdicts (PASS / FAIL)</strong> delivered via a screening card for each coordinate, showing the score and criteria results.</p>
       </li>
       <li>
         <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 4.5v15a2.25 2.25 0 002.25 2.25h12A2.25 2.25 0 0020.25 19.5V4.5M3.75 4.5L12 9l8.25-4.5M3.75 4.5h16.5v-2.25A2.25 2.25 0 0017.25 0H6.75A2.25 2.25 0 004.5 2.25v2.25z" /></svg></div>
-        <p><strong>20 Screening Credits</strong> to test 20 real land leads during the pilot, proving the value immediately.</p>
+        <p><strong>20 Screening Credits</strong> included to test 20 real land leads (1 coordinate screening = 1 credit).</p>
       </li>
     </ul>
 
-    <h3>A 4-Week Roadmap to Your Custom Engine</h3>
+    <h3>A 4-Week Roadmap to Your Pilot Engine</h3>
     <ul class="icon-list">
       <li>
-        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3v1.5M3 21v-6m0 0l2.77-.693a9 9 0 016.208.682l.108.054a9 9 0 006.086.71l3.114-.732a48.524 48.524 0 01-.005-10.499l-3.11.732a9 9 0 01-6.085-.711l-.108-.054a9 9 0 00-6.208-.682L3 4.5M3 15V4.5" /></svg></div>
-        <p><strong>Week 1:</strong> Kickoff & Scoping Session (Define your 1 activation region & <strong>your key criteria thresholds</strong>)</p>
+        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg></div>
+        <p><strong>Week 1:</strong> Kickoff, Infrastructure Layer Setup & Activation Region Selection.</p>
       </li>
       <li>
         <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .587-.213 1.158-.591 1.591L13.5 14.5m0 0v5.25m2.25-5.25H5" /></svg></div>
-        <p><strong>Weeks 2–3:</strong> Data Sourcing, Ingestion & AI Modeling (We build your custom data layers)</p>
+        <p><strong>Weeks 2–3:</strong> Precomputation of zones and deployment of viability engine for your chosen region.</p>
       </li>
       <li>
         <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg></div>
-        <p><strong>Week 4:</strong> Engine Delivery & Handover Workshop (Train your team on your new custom tool)</p>
+        <p><strong>Week 4:</strong> Engine Delivery & Handover Workshop to train your team on the new tool.</p>
       </li>
     </ul>
 
     <div class="investment-box">
-      <h3>A Smart Investment in Certainty</h3>
+      <h3>Pilot Investment</h3>
       <p class="price">PHP 150,000</p>
-      <p class="context">This pilot is a small investment to prevent a multi-million peso mistake. It's an investment to stop wasting time and resources on non-viable land.</p>
+      <p class="context">This pilot is a small investment to stop wasting time and resources on non-viable land and accelerate your screening process.</p>
     </div>
 
     <div class="cta-section">
